@@ -1,0 +1,67 @@
+Réaliser un jeu de mémoire type "Mémories" en utilisant :
+
+Pour le front utiliser les langages
+    HTML,
+    CSS avec l'utilisation de préférence un préprocesseur comme sass mais sans task runner,
+    et JS avec possibilité d'utiliser une bibliothèque JS comme jQuery
+
+L'objectif est de réaliser un code simple et compréhensible pour une personne débutante en programmation web - pas d'utilisation de canva afin de montrer aux apprenants la manipulation du DOM. Ne pas se faire plaisir mais avoir une utilité pédagogique.
+
+Pour le Back
+  Utiliser un serveur Apache ou nodejs en fonction du langage serveur choisit Php ou Javascript - pas de Framework
+  Le code doit être organisé en objet - Il n'est pas précisé si des patterns type MVC peuvent être utilisés.  Pas de précision si le code doit suivre ou non la norme PSR-4
+  L'objectif est toujours à des fins pédagogiques - Découverte de la POO. Il n'est pas précisé si on peut utiliser un gestionnaire de paquets comme composer si le choix s'oriente vers PHP
+
+
+La base de données :
+    Aucune précision mais il est bien précisé qu'il s'agit d'une découverte de la base de données pour des apprenants.
+    On doit stocker uniquement des temps et des dates. Il n'y a pas de gestion des utilisateurs. L'objectif est de découvrir l'insertion et la recherche de données.
+
+Déposer le projet sur github.
+
+
+Fonctionnel :
+
+ Ecran avant de jouer ou rejouer :
+    Afficher les meilleurs temps.
+
+ Ecran de démarrage :
+    Au commencement du jeu, des cartes sont disposées face cachée à l'écran.
+
+ Durant le jeu :
+
+    Le joueur doit cliquer sur deux cartes. Si celles-ci sont identiques, la paire est validée. Sinon, les cartes sont retournées face cachée, et le joueur doit sélectionner une nouvelle paire de cartes.
+
+     Un compteur de temps, avec une barre de progression, s’affiche en dessous du plateau.
+     Le joueur gagne s'il arrive à découvrir toutes les paires avant la fin du temps imparti.
+
+  Remarque fonctionnelle :
+
+À la lecture du fonctionnel c'est au développeur de déterminer le temps pour rechercher les cartes.
+
+
+ A faire :
+    - Rechercher la charte graphique (Couleur, Police).
+    - Réaliser la maquette.
+    - Installation des technologies.
+    - Configuration du serveur.
+    - Mise en place de la structure de base des dossiers et des fichiers.
+    - Intégration HTML et CSS.
+        Développement Front :
+            Tous les écrans sont développés sur la même page
+            Ecran jouer :
+                Affichage des scores.
+                Proposer le bouton Jouer.
+            Ecran jeux :
+                Initialisation du jeu - Tri des cartes et lancement du temps.
+                Gestion que l'utilisateur retourner que deux cartes.
+                Vérifier que les deux cartes sont identiques.
+                    Sinon masquer les cartes à nouveau.
+                Vérifier qu'il reste des cartes non retournées.
+                    Si ce n'est pas le cas afficher l'écran gagné et stopper le compteur et stocker le temps en base de données.
+                Si temps écoulé afficher l'écran perdu et stocker le temps dans la base de données
+
+
+        Développement back :
+            Envoyer les x meilleurs temps
+            Stocker le temps et la date de la partie
