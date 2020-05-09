@@ -41,8 +41,6 @@ Fonctionnel :
 
 
  A faire :
-    - Rechercher la charte graphique (Couleur, Police).
-    - Réaliser la maquette.
     - Installation des technologies.
     - Configuration du serveur.
     - Mise en place de la structure de base des dossiers et des fichiers.
