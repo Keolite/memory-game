@@ -1,0 +1,7 @@
+
+// Function qui permet de convertir les px en rem d'après la taille contenu dans la variable global default-font-size
+// @PARAM {integer} size
+// @returns {string}
+@function pxToRem($size){
+  @return $size / $default-font-size * 1rem;
+}

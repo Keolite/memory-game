@@ -1,0 +1,7 @@
+
+/* Mise en place des éléments de base de page html */
+body{
+  margin:0;
+  background-color: $background-color;
+  font: $default-font-size $font-family, sans-serif;
+}
