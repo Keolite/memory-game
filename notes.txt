@@ -1,0 +1,27 @@
+Première étape
+    J'ai recherché sur Behance ou Dribble une idée de mise en page simple pour le jeu pour de l'inspiraton.
+    J'ai utilisé Adobe XD pour mettre en page mes 4 écrans
+
+Deuxième étape :
+    Instalaltion d'une machine virtuel Ubuntu 16.04 vide que j'ai déployé avec Vagrant
+    Mise en place de SASS
+
+Troisième étape :
+    Mise en place de la structure du dossiers static
+
+    - static
+        |
+            - assets
+            |
+                - css
+                - fonts
+                - js
+                - skins
+
+            - scss
+                |
+                    - app.scss
+
+            - index.html
+
+     - .gitignore
