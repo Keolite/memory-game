@@ -1,0 +1,48 @@
+// Component button
+button{
+
+  // Local variable
+  $button-background-image : linear-gradient( to bottom, #FDB636, #F96703);
+  $button-border: 1px solid;
+  $button-border-color: #F9F9F9;
+  $button-border-radius: 28px;
+  $button-text-color: $text-color;
+  $button-padding: pxToRem(30) pxToRem(180);
+  $button-font-size: $paragraph;
+
+  // Button structure
+  background: $button-background-image;
+  border: $button-border $button-border-color;
+  border-radius: $button-border-radius;
+  color: $button-text-color;
+  padding: $button-padding;
+  font-size: $button-font-size;
+
+
+
+
+  // Local variable button after
+  $button-after-content : '';
+  $button-after-width : 0;
+  $button-after-height : 0;
+  $button-after-border-style : solid;
+  $button-after-border-width : 14px 0 14px 31px;
+  $button-after-border-color : transparent transparent transparent #FFFFFF;
+  $button-after-font-size : 0;
+  $button-after-display : inline-block;
+  $button-after-margin : 0 0 0  pxToRem(25);
+
+
+  &::after{
+    content: $button-after-content;
+    width: $button-after-width;
+    height: $button-after-height;
+    border-style: $button-after-border-style;
+    border-width: $button-after-border-width ;
+    border-color:$button-after-border-color;
+    font-size: $button-after-font-size;
+    display: $button-after-display;
+    margin: $button-after-margin;
+  }
+
+}
