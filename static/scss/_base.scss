@@ -69,7 +69,7 @@ h2{
     @include flexbox( row, space-between);
     flex-wrap: wrap;
 
-    .card {
+    > .card {
       background-color: transparent;
       perspective: 1000px;
       padding: pxToRem(10);
@@ -77,8 +77,9 @@ h2{
       @include flexbox(row, space-between, center);
       margin-bottom: pxToRem(15);
       flex-wrap: wrap;
+      cursor: pointer;
 
-      &:hover > .card-inner {
+      &.active {
         transform: rotateY(180deg);
       }
 
@@ -100,7 +101,7 @@ h2{
         }
 
         > .card-front {
-          background-color: #bbb;
+          background-color: #401414;
         }
 
         .card-back {
