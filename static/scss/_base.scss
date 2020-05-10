@@ -4,4 +4,21 @@ body{
   margin:0;
   background-color: $background-color;
   font: $default-font-size $font-family, sans-serif;
+  color: $text-color;
+}
+
+header{
+  padding-left: pxToRem(50);
+}
+
+main{
+  font-size: $paragraph;
+}
+
+h1{
+  font-size: $title;
+}
+
+h2{
+  font-size: $subtitle;
 }
