@@ -1,5 +1,5 @@
 .idea/
 Vagrantfile
 *.log
-assets/css/
+static/assets/css/
 .vagrant
