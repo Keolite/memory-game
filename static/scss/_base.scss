@@ -22,3 +22,33 @@ h1{
 h2{
   font-size: $subtitle;
 }
+
+#screen-common{
+  @include flexbox(row, space-around, flex-start);
+
+  > div{
+
+    &:first-child{
+      flex: 0 0 39%;
+    }
+
+    > h2{
+
+        @include flexbox(column, center, center);
+
+
+        &::before{
+          content: url(../skins/hippo.png);
+          display: block;
+        }
+    }
+
+    ol{
+      @include list-style-reset;
+      text-align: center;
+    }
+  }
+
+
+}
+
