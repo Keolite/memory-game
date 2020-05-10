@@ -2,3 +2,4 @@
 Vagrantfile
 *.log
 assets/css/
+.vagrant
