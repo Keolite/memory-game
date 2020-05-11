@@ -8,7 +8,7 @@ body{
 }
 
 header{
-  padding-left: pxToRem(50);
+  text-align: center;
 }
 
 main{
@@ -16,15 +16,33 @@ main{
 }
 
 h1{
-  font-size: $title;
-}
+  font-size: $title;}
 
 h2{
   font-size: $subtitle;
+
+
+}
+
+main{
+  @include flexbox(row, flex-start , flex-start);
+  overflow: hidden;
+  width: 100vw;
+  > div{
+    flex: 0 0 100%;
+  }
 }
 
 #screen-common{
   @include flexbox(row, space-around, flex-start);
+  overflow: hidden;
+  opacity: 1;
+
+  &.close{
+    flex:  0 0 0;
+    opacity: 0;
+    transition: flex .6s linear, opacity .1s linear ;
+  }
 
   > div{
 

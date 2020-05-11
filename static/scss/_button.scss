@@ -9,6 +9,7 @@ button{
   $button-text-color: $text-color;
   $button-padding: pxToRem(30) pxToRem(180);
   $button-font-size: $paragraph;
+  $button-after-cursor : pointer;
 
   // Button structure
   background: $button-background-image;
@@ -17,6 +18,7 @@ button{
   color: $button-text-color;
   padding: $button-padding;
   font-size: $button-font-size;
+  cursor: $button-after-cursor;
 
 
 
@@ -31,6 +33,7 @@ button{
   $button-after-font-size : 0;
   $button-after-display : inline-block;
   $button-after-margin : 0 0 0  pxToRem(25);
+
 
 
   &::after{
