@@ -10,6 +10,10 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.3"
+  },
+  "scripts": {
+    "start": "./node_modules/nodemon/bin/nodemon.js ./server/app.js -L"
   }
 }
