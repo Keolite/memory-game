@@ -232,7 +232,7 @@ const Board = {
 
         setTimeout(function(){
             this.reset(win);
-        }.bind(this) , 2000);
+        }.bind(this) , 1000);
 
 
     },
@@ -290,7 +290,7 @@ const Game = {
 
     _options : {
         numberOfPair : 14,
-        timing : 180000
+        timing : 150000
     },
 
     init : function(){
