@@ -25,3 +25,12 @@ Troisième étape :
             - index.html
 
      - .gitignore
+
+Quatrième étape gestion du css pour les grands écran uniquement
+
+Cinqième étape réalisation du javascript côé front uniquement sans la gestion des scores
+
+sixième étage Mise en place du server node
+
+    - server
+    - static

@@ -46,18 +46,18 @@ Fonctionnel :
     - Mise en place de la structure de base des dossiers et des fichiers.
     - Intégration HTML et CSS.
         Développement Front :
-            Tous les écrans sont développés sur la même page
+
             Ecran jouer :
                 Affichage des scores.
-                Proposer le bouton Jouer.
-            Ecran jeux :
-                Initialisation du jeu - Tri des cartes et lancement du temps.
-                Gestion que l'utilisateur retourner que deux cartes.
-                Vérifier que les deux cartes sont identiques.
-                    Sinon masquer les cartes à nouveau.
-                Vérifier qu'il reste des cartes non retournées.
-                    Si ce n'est pas le cas afficher l'écran gagné et stopper le compteur et stocker le temps en base de données.
-                Si temps écoulé afficher l'écran perdu et stocker le temps dans la base de données
+
+
+
+
+
+
+
+
+
 
 
         Développement back :
