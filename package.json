@@ -1,0 +1,15 @@
+{
+  "name": "Memory",
+  "version": "1.0.0",
+  "description": "Jeux de mémoire.",
+  "main": "index.js",
+  "repository": "https://github.com/Keolite/memory-game.git",
+  "author": "Manu",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0"
+  }
+}
