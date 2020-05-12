@@ -16,7 +16,25 @@ main{
 }
 
 h1{
-  font-size: $title;}
+  font-size: $title;
+
+  &::after, ::after{
+    display: block;
+    text-align: center;
+  }
+
+  &.win::after{
+    content: url(../skins/icon-winner.png);
+
+  }
+
+  &.loose::after{
+    content: url(../skins/icon-looser.png);
+
+  }
+}
+
+
 
 h2{
   font-size: $subtitle;
@@ -37,6 +55,7 @@ main{
   @include flexbox(row, space-around, flex-start);
   overflow: hidden;
   opacity: 1;
+  transition: flex .6s linear, opacity .7s linear ;
 
   &.close{
     flex:  0 0 0;
@@ -106,9 +125,13 @@ main{
         width: 100px;
         height: 100px;
         text-align: center;
-        transition: transform 0.6s;
+        transition: transform 0.3s;
         transform-style: preserve-3d;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+        &.back{
+          transform: rotateY(180deg);
+        }
 
         > .card-front, > .card-back {
           position: absolute;
@@ -137,21 +160,28 @@ main{
   $progress-bar-height: 20px;
   $progress-bar-border: 1px solid;
   $progress-bar-border-color : #FFFFFF;
-  $progress-bar-border-radius: 5px;
   $progress-bar-background-color:  #94FF8C;
+  $progress-bar-background-color-middle:  #f5e914;
+  $progress-bar-background-color-end:  #753831;
 
 
   > #progress{
     width: $progress-bar-width;
     height: $progress-bar-height;
-    border-radius: $progress-bar-border-radius;
     border: $progress-bar-border $progress-bar-border-color;
-    overflow: hidden;
     margin: 0 auto;
 
     > div{
       height: 100%;
       background:$progress-bar-background-color;
+
+      &.middle{
+        background:$progress-bar-background-color-middle
+      }
+
+      &.end{
+        background:$progress-bar-background-color-end
+      }
     }
   }
 }
