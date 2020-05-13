@@ -1,3 +1,9 @@
+async function sendTimeToServer(duration){
+    let response = await fetch(`/score/add/${duration}`);
+    let data = await response.json();
+    console.log(data);
+}
+
 const Skin =  {
 
     _message:{
@@ -215,7 +221,9 @@ const Board = {
             return;
         }
 
+
         this.stopGame();
+
 
     },
 
@@ -224,7 +232,10 @@ const Board = {
 
         if( this._cards.numberPairFind === this._props.numberOfPair){
             win = true;
+            clearInterval(this._chrono.chrono);
+            sendTimeToServer(this._chrono.realValue);
         }
+
 
         const skin = Object.create(Skin);
         skin.message( win,  this._selector.greatTitle );
@@ -242,7 +253,7 @@ const Board = {
         this._chrono.realValue = this._props.timing;
         this._clicks.state = '00';
         this._cards.numberPairFind  = 0;
-        skin = Object.create(Skin);
+        const skin = Object.create(Skin);
         skin.resetProgressBar( this._selector.progressBar );
         skin.resetCards( this._selector.frontCards);
         this.prepareBoard();

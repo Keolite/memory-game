@@ -9,10 +9,6 @@ module.exports  = (app) => {
         new DefaultController(req, res).index()
     });
 
-    app.get('/score', (req, res) => {
-        new ScoreController(req, res).listBest()
-    });
-
     app.get('/score/add/:duration', (req, res) => {
         new ScoreController(req, res).add(req.params.duration)
     });

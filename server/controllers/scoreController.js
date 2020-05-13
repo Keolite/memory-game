@@ -1,23 +1,18 @@
-const  ScoreEntity = require('../models/score');
+const Controller = require('../libs/controller');
+const Score = require('../models/score');
 
-class ScoreController {
+class ScoreController extends Controller {
 
-    constructor( req, res){
+    super( req, res){
         this._req = req;
         this._res = res;
-
     }
 
-    async listBest( ){
-        //const Score = new ScoreEntity();
-        //const view = new Object();
-        //view.score = await Score.topThreeScore();
-        this._res.render('Les meilleurs');
-    }
+    async  add( duration ){
 
-
-    add( duration ){
-        this._res.send(`Ajout fait ${duration}`);
+        const scores = new Score();
+        this.view.scores = await scores.addScore(duration);
+        return this._res.json({ username: duration });
     }
 }
 
