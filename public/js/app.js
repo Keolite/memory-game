@@ -74,7 +74,7 @@ const Skin =  {
         while(element.firstElementChild){
             element.removeChild(element.firstElementChild);
         }
-        console.log(newScore);
+
         for(let i = 0; i < newScore.length; i++ ){
             const  node = document.createElement("LI");
             const  dateGame = new Date(newScore[i].dateGame);
@@ -87,7 +87,6 @@ const Skin =  {
             node.appendChild(textnode);
             node.setAttribute("data-duration", newScore[i].duration);
             element.appendChild(node);
-            console.log('jumm');
         }
 
 
