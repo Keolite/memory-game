@@ -1,8 +1,11 @@
 /* Routes */
+const DefaultController  =  require('../controllers/defaultController');
+
+
 
 module.exports  = (app) => {
     app.get('/', (req, res) => {
-        res.send('Hello');
+        new DefaultController(req, res).index()
     });
 
     app.get('/score', (req, res) => {
