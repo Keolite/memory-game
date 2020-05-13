@@ -1,7 +1,14 @@
 async function sendTimeToServer(duration){
     let response = await fetch(`/score/add/${duration}`);
     let data = await response.json();
-    console.log(data);
+    return data;
+}
+
+
+async function listServer(){
+    let response = await fetch(`/score`);
+    let data = await response.json();
+    return data ;
 }
 
 const Skin =  {
@@ -91,7 +98,8 @@ const Board = {
         screenCommon: document.getElementById('screen-common'),
         frontCards:  document.querySelectorAll('.card-front'),
         progressBar: document.getElementById('progress'),
-        greatTitle: document.querySelector('h1')
+        greatTitle: document.querySelector('h1'),
+        score: document.getElementById('score')
     },
 
     generateBoard: function( options ){
@@ -154,7 +162,7 @@ const Board = {
             this.stopGame();
         }
 
-        console.log(this._chrono.realValue);
+
     },
 
     choice: function(e){
@@ -227,13 +235,16 @@ const Board = {
 
     },
 
-    stopGame: function(){
+     stopGame:  async function(){
         let win = false;
 
         if( this._cards.numberPairFind === this._props.numberOfPair){
             win = true;
             clearInterval(this._chrono.chrono);
-            sendTimeToServer(this._chrono.realValue);
+            sendTimeToServer(this._props.timing - this._chrono.realValue);
+            const newScore = await listServer();
+            console.log(newScore);
+            this.updateScore(newScore);
         }
 
 
@@ -249,6 +260,7 @@ const Board = {
     },
 
     reset: function(win){
+
         this.displayScreenCommon(win );
         this._chrono.realValue = this._props.timing;
         this._clicks.state = '00';
@@ -257,6 +269,33 @@ const Board = {
         skin.resetProgressBar( this._selector.progressBar );
         skin.resetCards( this._selector.frontCards);
         this.prepareBoard();
+
+
+    },
+
+    updateScore: function(newScore){
+
+        while(this._selector.score.firstElementChild){
+            this._selector.score.removeChild(this._selector.score.firstElementChild);
+        }
+
+        for(let i = 0; i < newScore.length; i++ ){
+            const  node = document.createElement("LI");
+            const  dateGame = new Date(newScore[i].dateGame);
+            const  year = dateGame.getFullYear();
+            const  month = ("0" + (dateGame.getMonth() + 1)).slice(-2);
+            const  day = ("0" + dateGame.getDate()).slice(-2);
+            const minutes = ("0" + Math.floor( newScore[i].duration / 60000) ).slice(-2) ;
+            const secondes = ("0" +  (newScore[i].duration / 60000) % 1000 ) .slice(-2);
+            const textnode = document.createTextNode(`${day}-${month}-${year} - ${minutes}" ${secondes}`);
+            node.appendChild(textnode);
+            node.setAttribute("data-duration", newScore[i].duration);
+            this._selector.score.appendChild(node);
+        }
+
+
+
+
 
 
     },

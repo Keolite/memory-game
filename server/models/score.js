@@ -9,7 +9,7 @@ class Score {
 
       async topThreeScore(){
          let someRows = 2;
-         someRows =  await this.database.query( 'SELECT * FROM score' );
+         someRows =  await this.database.query( 'SELECT dateGame, duration FROM score order by duration asc limit 3' );
          return someRows;
 
      }

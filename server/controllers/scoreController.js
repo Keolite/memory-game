@@ -11,8 +11,14 @@ class ScoreController extends Controller {
     async  add( duration ){
 
         const scores = new Score();
-        this.view.scores = await scores.addScore(duration);
-        return this._res.json({ username: duration });
+        await scores.addScore(duration);
+    }
+
+    async  list( ){
+
+        const scores = new Score();
+        this.view.scores = await scores.topThreeScore();
+        return this._res.json(this.view.scores);
     }
 }
 

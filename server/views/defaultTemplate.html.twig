@@ -27,15 +27,17 @@
         </div>
         <div>
             <h2>Meilleurs temps</h2>
-            {% if  scores | length == 0 %}
-                <p>Pas de score actuellement</p>
-            {% else %}
-                <ol>
-                    {% for score in scores %}
-                        <li>{{ score.dateGame }} - {{score.duration}}</li>
-                    {% endfor %}
-                </ol>
-            {%  endif %}
+            <ol id="score">
+                {% if  scores | length == 0 %}
+                    <li data-duration="0" >No score</li>
+                {% else %}
+                        {% for score in scores %}
+                            {% set minutes =   (score.duration / 60000) | round(0, "floor")  %}
+                            {% set secondes =   ((score.duration % 60000) / 1000)  %}
+                            <li data-duration="{{score.duration}}" >{{ score.dateGame| date("d-m-Y") }} - {{ "%02d"|format(minutes) }}" {{ "%02d"|format(secondes) }}</li>
+                        {% endfor %}
+                {%  endif %}
+            </ol>
         </div>
     </div>
     <div id="screen-game">
