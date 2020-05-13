@@ -1,4 +1,4 @@
-
+const  ScoreEntity = require('../models/score');
 
 class ScoreController {
 
@@ -8,8 +8,11 @@ class ScoreController {
 
     }
 
-    listBest( ){
-        this._res.send('Les meilleurs');
+    async listBest( ){
+        //const Score = new ScoreEntity();
+        //const view = new Object();
+        //view.score = await Score.topThreeScore();
+        this._res.render('Les meilleurs');
     }
 
 

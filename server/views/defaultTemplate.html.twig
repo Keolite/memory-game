@@ -27,11 +27,15 @@
         </div>
         <div>
             <h2>Meilleurs temps</h2>
-            <ol>
-                <li>03/05/2020 - 1"20</li>
-                <li>03/05/2020 - 1"20</li>
-                <li>03/05/2020 - 1"20</li>
-            </ol>
+            {% if  scores | length == 0 %}
+                <p>Pas de score actuellement</p>
+            {% else %}
+                <ol>
+                    {% for score in scores %}
+                        <li>{{ score.gameDate }} - {{score.duration}}</li>
+                    {% endfor %}
+                </ol>
+            {%  endif %}
         </div>
     </div>
     <div id="screen-game">

@@ -4,50 +4,36 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-class MysqlConnexion
-{
-    constructor()
-    {
-        this.mysql = mysql;
-    }
-
-    start()
-    {
-        return new Promise(function (resolve, reject) {
-
-            var pool = mysql.createPool({
-                database: process.env.MYSQL_DATABASE,
-                host: process.env.MYSQL_HOST,
-                user: process.env.MYSQL_USER,
-                password: process.env.MYSQL_PASSWORD,
-            });
-
-            pool.getConnection(function(err, connection) {
-                if (err) reject(err);
-
-                resolve(connection);
-            });
+;class Database {
+    constructor( config ) {
+        this.connection = mysql.createConnection({
+            database: process.env.MYSQL_DATABASE,
+            host: process.env.MYSQL_HOST,
+            user: process.env.MYSQL_USER,
+            password: process.env.MYSQL_PASSWORD
         });
     }
 
-    queryAll(connection, sql)
-    {
-        return new Promise(function (resolve, reject) {
-            connection.query(sql, function(err, rows, fields) {
-                connection.release();
-
-                if (err) return reject(err);
-
-                resolve(rows);
-            });
-        });
+    async query( sql, args ) {
+        return new Promise( ( resolve, reject ) => {
+            this.connection.query( sql, args, ( err, rows ) => {
+                if ( err )
+                    return reject( err );
+                resolve( rows );
+            } );
+        } );
     }
 
 
-
-    insert(connexion, sql){
-        this.queryOne(connexion, sql);
+    close() {
+        return new Promise( ( resolve, reject ) => {
+            this.connection.end( err => {
+                if ( err )
+                    return reject( err );
+                resolve();
+            } );
+        } );
     }
 }
 
-module.exports = MysqlConnexion;
+module.exports = Database;
