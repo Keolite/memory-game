@@ -11,10 +11,10 @@
     "twig": "^1.15.1"
   },
   "devDependencies": {
-    "morgan": "^1.10.0",
     "nodemon": "^2.0.3"
   },
   "scripts": {
-    "start": "node app.js "
+    "start": "node app.js ",
+    "dev": "./node_modules/nodemon/bin/nodemon.js app.js -L "
   }
 }
