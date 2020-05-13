@@ -34,3 +34,13 @@ sixième étage Mise en place du server node
 
     - server
     - static
+septième étape tester
+huitième étape Assemblage des dossiers à la racine
+    - controllers
+    - libs
+    - models
+    - public
+    - controller
+    - routes
+    - views
+    app.js

@@ -41,14 +41,7 @@ Fonctionnel :
 
 
  A faire :
-    - Installation des technologies.
-    - Configuration du serveur.
-    - Mise en place de la structure de base des dossiers et des fichiers.
-    - Intégration HTML et CSS.
-        Développement Front :
-
-            Ecran jouer :
-                Affichage des scores.
+    - Responsive
 
 
 
@@ -60,6 +53,3 @@ Fonctionnel :
 
 
 
-        Développement back :
-            Envoyer les x meilleurs temps
-            Stocker le temps et la date de la partie

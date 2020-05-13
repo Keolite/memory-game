@@ -5,10 +5,17 @@ async function sendTimeToServer(duration){
 }
 
 
-async function listServer(){
-    let response = await fetch(`/score`);
-    let data = await response.json();
-    return data ;
+function listScore( element ){
+    fetch(`/score`)
+        .then( function( response ){
+            return response.json();
+        }
+    ).then( function( data ){
+        skin =  Object.create(Skin);
+        skin.updateScore(data, element );
+    })
+
+
 }
 
 const Skin =  {
@@ -60,7 +67,36 @@ const Skin =  {
         for( let element of elements ){
             element.parentElement.classList.remove('back')
         }
-    }
+    },
+
+    updateScore: function(newScore, element){
+
+        while(element.firstElementChild){
+            element.removeChild(element.firstElementChild);
+        }
+        console.log(newScore);
+        for(let i = 0; i < newScore.length; i++ ){
+            const  node = document.createElement("LI");
+            const  dateGame = new Date(newScore[i].dateGame);
+            const  year = dateGame.getFullYear();
+            const  month = ("0" + (dateGame.getMonth() + 1)).slice(-2);
+            const  day = ("0" + dateGame.getDate()).slice(-2);
+            const minutes = ("0" + Math.floor( newScore[i].duration / 60000) ).slice(-2) ;
+            const secondes = ("0" +  (newScore[i].duration % 60000) / 1000 ) .slice(-2);
+            const textnode = document.createTextNode(`${day}-${month}-${year} - ${minutes}" ${secondes}`);
+            node.appendChild(textnode);
+            node.setAttribute("data-duration", newScore[i].duration);
+            element.appendChild(node);
+            console.log('jumm');
+        }
+
+
+
+
+
+
+    },
+
 
 
 }
@@ -235,16 +271,14 @@ const Board = {
 
     },
 
-     stopGame:  async function(){
+     stopGame:  function(){
         let win = false;
 
         if( this._cards.numberPairFind === this._props.numberOfPair){
             win = true;
             clearInterval(this._chrono.chrono);
             sendTimeToServer(this._props.timing - this._chrono.realValue);
-            const newScore = await listServer();
-            console.log(newScore);
-            this.updateScore(newScore);
+            listScore(this._selector.score);
         }
 
 
@@ -273,32 +307,6 @@ const Board = {
 
     },
 
-    updateScore: function(newScore){
-
-        while(this._selector.score.firstElementChild){
-            this._selector.score.removeChild(this._selector.score.firstElementChild);
-        }
-
-        for(let i = 0; i < newScore.length; i++ ){
-            const  node = document.createElement("LI");
-            const  dateGame = new Date(newScore[i].dateGame);
-            const  year = dateGame.getFullYear();
-            const  month = ("0" + (dateGame.getMonth() + 1)).slice(-2);
-            const  day = ("0" + dateGame.getDate()).slice(-2);
-            const minutes = ("0" + Math.floor( newScore[i].duration / 60000) ).slice(-2) ;
-            const secondes = ("0" +  (newScore[i].duration / 60000) % 1000 ) .slice(-2);
-            const textnode = document.createTextNode(`${day}-${month}-${year} - ${minutes}" ${secondes}`);
-            node.appendChild(textnode);
-            node.setAttribute("data-duration", newScore[i].duration);
-            this._selector.score.appendChild(node);
-        }
-
-
-
-
-
-
-    },
 
     displayScreenCommon: function(){
         this._selector.screenCommon.classList.remove('close');

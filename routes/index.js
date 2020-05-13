@@ -13,7 +13,7 @@ module.exports  = (app) => {
         new ScoreController(req, res).add(req.params.duration)
     });
 
-    app.get('/score/', (req, res) => {
+    app.get('/score', (req, res) => {
         new ScoreController(req, res).list()
     });
 }

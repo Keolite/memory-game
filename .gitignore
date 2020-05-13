@@ -6,3 +6,4 @@ static/assets/css/
 node_modules
 yarn-error.log
 yarn.lock
+.env
