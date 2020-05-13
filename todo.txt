@@ -42,7 +42,8 @@ Fonctionnel :
 
  A faire :
     - Commentaire
-    - Deploiement
+    - Vagrant - Ansible
+    - Readme
     - Responsive
 
 
