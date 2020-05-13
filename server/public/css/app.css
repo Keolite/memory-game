@@ -1,0 +1,177 @@
+@charset "UTF-8";
+/* Mise en place des éléments de base de page html */
+body {
+  margin: 0;
+  background-color: #DE4523;
+  font: 16px "Rubik", sans-serif;
+  color: #FFFFFF;
+}
+
+header {
+  text-align: center;
+}
+
+main {
+  font-size: 3.125rem;
+}
+
+h1 {
+  font-size: 4.375rem;
+}
+h1::after, h1 ::after {
+  display: block;
+  text-align: center;
+}
+h1.win::after {
+  content: url(../skins/icon-winner.png);
+}
+h1.loose::after {
+  content: url(../skins/icon-looser.png);
+}
+
+h2 {
+  font-size: 3.75rem;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+  width: 100vw;
+}
+main > div {
+  flex: 0 0 100%;
+}
+
+#screen-common {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  overflow: hidden;
+  opacity: 1;
+  transition: flex 0.6s linear, opacity 0.7s linear;
+}
+#screen-common.close {
+  flex: 0 0 0;
+  opacity: 0;
+  transition: flex 0.6s linear, opacity 0.1s linear;
+}
+#screen-common > div:first-child {
+  flex: 0 0 39%;
+}
+#screen-common > div > h2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#screen-common > div > h2::before {
+  content: url(../skins/hippo.png);
+  display: block;
+}
+#screen-common > div > ol {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+#screen-game {
+  text-align: center;
+}
+#screen-game > #game-board {
+  list-style: none;
+  padding-left: 0;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#screen-game > #game-board > .card {
+  background-color: transparent;
+  perspective: 1000px;
+  padding: 0.625rem;
+  border: 1px solid #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.9375rem;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+#screen-game > #game-board > .card.active {
+  transform: rotateY(180deg);
+}
+#screen-game > #game-board > .card > .card-inner {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+#screen-game > #game-board > .card > .card-inner.back {
+  transform: rotateY(180deg);
+}
+#screen-game > #game-board > .card > .card-inner > .card-front, #screen-game > #game-board > .card > .card-inner > .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+#screen-game > #game-board > .card > .card-inner > .card-front {
+  background-color: #401414;
+}
+#screen-game > #game-board > .card > .card-inner .card-back {
+  background-image: url(../skins/cards.png);
+  background-repeat: no-repeat;
+  transform: rotateY(180deg);
+}
+#screen-game > #progress {
+  width: 960px;
+  height: 20px;
+  border: 1px solid #FFFFFF;
+  margin: 0 auto;
+}
+#screen-game > #progress > div {
+  height: 100%;
+  background: #94FF8C;
+}
+#screen-game > #progress > div.middle {
+  background: #f5e914;
+}
+#screen-game > #progress > div.end {
+  background: #753831;
+}
+
+button {
+  background: linear-gradient(to bottom, #FDB636, #F96703);
+  border: 1px solid #F9F9F9;
+  border-radius: 28px;
+  color: #FFFFFF;
+  padding: 1.875rem 11.25rem;
+  font-size: 3.125rem;
+  cursor: pointer;
+}
+button::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 14px 0 14px 31px;
+  border-color: transparent transparent transparent #FFFFFF;
+  font-size: 0;
+  display: inline-block;
+  margin: 0 0 0 1.5625rem;
+}
+
+/*# sourceMappingURL=app.css.map */

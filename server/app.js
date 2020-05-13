@@ -11,6 +11,9 @@ app.set("twig options", {
      allow_async: true,
      strict_variables: false
 });
+app.use(express.static(__dirname + '/public'));
+
+
 
 routes(app);
 
