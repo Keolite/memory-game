@@ -41,6 +41,8 @@ Fonctionnel :
 
 
  A faire :
+    - Commentaire
+    - Deploiement
     - Responsive
 
 
