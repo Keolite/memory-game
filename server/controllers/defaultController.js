@@ -1,5 +1,5 @@
 
-class defaultController {
+ class DefaultController {
 
     constructor( req, res){
         this._req = req;
@@ -8,9 +8,9 @@ class defaultController {
     }
 
     index( ){
-        this._res.send('Default page');
+        this._res.render('defaultTemplate.html.twig');
     }
 }
 
 
-module.exports = defaultController;
+module.exports = DefaultController;

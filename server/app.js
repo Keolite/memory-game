@@ -1,12 +1,16 @@
 const express = require('express');
-const morgan = require('morgan');
-const routes = require('./routes/index');
-
+const Twig = require('twig');
+const routes =  require('./routes/index');
 const PORT = 3000;
-
 const app = express();
-app.use(morgan('dev'))
 
+
+
+app.set('views', __dirname + '/views');
+app.set("twig options", {
+     allow_async: true,
+     strict_variables: false
+});
 
 routes(app);
 

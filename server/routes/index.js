@@ -1,5 +1,6 @@
 /* Routes */
 const DefaultController  =  require('../controllers/defaultController');
+const ScoreController  =  require('../controllers/scoreController');
 
 
 
@@ -9,10 +10,10 @@ module.exports  = (app) => {
     });
 
     app.get('/score', (req, res) => {
-        res.send(`les trois meilleurs`);
+        new ScoreController(req, res).listBest()
     });
 
     app.get('/score/add/:duration', (req, res) => {
-        res.send(`${req.params.duration}`);
+        new ScoreController(req, res).add(req.params.duration)
     });
 }
