@@ -3,7 +3,4 @@
     - mariadb10_4
     - nodejs
     - yarn
-#    - user_database_project
-#    - symfony4
-#    - gitignore
-#    - owner
+    - jeuxinstall
