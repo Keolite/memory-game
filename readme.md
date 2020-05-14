@@ -89,7 +89,6 @@ config.vm.provision "shell", inline: <<-SHELL
      dbname="nom_base_de_donnees"
      dbuser="nom_du_user_propre_a_la_base_de_donnees"
      pwduserdb="mot_de_passe_du_user_propre_a_la_base_de_donnees"
-     installSassLoader=false
 
      apt update
      apt upgrade -y
