@@ -76,3 +76,13 @@
     name: memories
     state: import
     target: /home/vagrant/www/dbdump/memories.sql
+
+- name: Create database user for project
+  mysql_user:
+    login_user: root
+    login_password: "{{ pwddb }}"
+    host: "localhost"
+    name: '{{ dbuser }}'
+    password: '{{ pwduserdb }}'
+    priv: 'memories.*:ALL'
+    state: present
