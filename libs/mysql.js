@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
+// Cette classe va gérer la connxion à la base de données et de réaliser les requêtes sql
 ;class Database {
     constructor( config ) {
         this.connection = mysql.createConnection({

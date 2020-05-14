@@ -1,6 +1,8 @@
 const Controller = require('../libs/controller');
 const Score = require('../models/score');
 
+
+/// Cette classe contient le contrôle pour ajouter ou lister les scores
 class ScoreController extends Controller {
 
     super( req, res){
