@@ -41,7 +41,7 @@ Fonctionnel :
 
 
  A faire :
-    - Commentaire
+    - Améliorer les commentaire
     - Vagrant - Ansible
     - Readme
     - Responsive

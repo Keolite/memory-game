@@ -44,3 +44,5 @@ huitième étape Assemblage des dossiers à la racine
     - routes
     - views
     app.js
+
+Neuvième étape quelque commentaire car pas de temps pour faire mieux '-) Accepte la déficience technique par manque de temps
