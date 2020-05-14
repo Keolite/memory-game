@@ -1,0 +1,31 @@
+- name: Remove file default .env
+  file:
+    path: /home/vagrant/www/.env
+    state: absent
+
+- name: Creation du .env vide
+  file:
+    path: /home/vagrant/www/.env
+    state: touch
+    mode: u=rw,g=r,o=r
+
+- name: add .env
+  template:
+    src: env.j2
+    dest: "/home/vagrant/www/.env"
+
+- name: yarn install  --no-bin-links
+  shell:
+    cmd: yarn install --no-bin-links
+    chdir: /home/vagrant/www
+  become: yes
+  become_user: vagrant
+
+- name: yarn run server
+  shell:
+    cmd: yarn run start
+    chdir: /home/vagrant/www
+  become: yes
+  become_user: vagrant
+
+
