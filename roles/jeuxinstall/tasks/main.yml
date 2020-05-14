@@ -1,3 +1,12 @@
+- name: Define Vagrant owner
+  file:
+    path: /home/vagrant/www
+    state: directory
+    recurse: yes
+    owner: vagrant
+    group: vagrant
+    mode: '0775'
+
 - name: Remove file default .env
   file:
     path: /home/vagrant/www/.env
