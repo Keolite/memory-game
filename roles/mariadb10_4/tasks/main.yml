@@ -68,3 +68,11 @@
     login_password: "{{ pwddb }}"
     db: test
     state: absent
+
+- name: Restore database
+  mysql_db:
+    login_user: root
+    login_password: "{{ pwddb }}"
+    name: memories
+    state: import
+    target: /home/vagrant/www/dbdump/memories.sql
