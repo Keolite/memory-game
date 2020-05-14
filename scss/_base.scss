@@ -42,6 +42,7 @@ h2{
 }
 
 main{
+  //Appel de la mixin flexbox pour éviter de réécire le code
   @include flexbox(row, flex-start , flex-start);
   overflow: hidden;
   width: 100vw;
@@ -50,6 +51,8 @@ main{
   }
 }
 
+
+/* Ecran commun. Il affiche le texte de démarrage mais aussi le texte de gagné ou perdu */
 #screen-common{
   @include flexbox(row, space-around, flex-start);
   overflow: hidden;
@@ -88,7 +91,7 @@ main{
 
 }
 
-
+/* Ecran plateau du jeu */
 #screen-game{
 
 

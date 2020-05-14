@@ -1,3 +1,7 @@
+
+/// @param {String} $direction - Direction de la flexbox
+/// @param {String} - $justify-content - Alignement des élément de l'axe principal
+/// @param {String} - $align-items - Alignement des élément de l'axe secondaire avec center comme valeur par défaut
 @mixin flexbox( $direction, $justify-content, $align-items: center){
   display: flex;
   flex-direction: $direction;
