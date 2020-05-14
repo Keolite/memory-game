@@ -1,4 +1,4 @@
-# With Ansible
+# Installer le jeu sur votre ordinateur avec Vagrant
 ## [Vagrant - Ubuntu-bionic 64 - Mariadb - nodejs - yarn ]
 
 La machine invitée contiendra :
@@ -47,7 +47,7 @@ La machine invitée contiendra :
 `config.vm.network "forwarded_port", guest: 3000, host: 8080`
 
 
-* Décommenter la ligne  `config.vm.synced_folder "../data", "/vagrant_data"` et modifier la ligne par les valeurs suivantes : `config.vm.synced_folder "./", "/var/www/html"` pour faire un lien symbolique entre le dossier du projet de la machine hôte avec le dossier html de la machine invitée.
+* Décommenter la ligne  `config.vm.synced_folder "../data", "/vagrant_data"` et modifier la ligne par les valeurs suivantes : `config.vm.synced_folder "./", "/home/vagrant/www"` pour faire un lien symbolique entre le dossier du projet de la machine hôte avec le dossier html de la machine invitée.
 * Remplacer le code
 
    ```
