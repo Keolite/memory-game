@@ -1,0 +1,12 @@
+@mixin flexbox( $direction, $justify-content, $align-items: center){
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+
+@mixin list-style-reset{
+  list-style: none;
+  padding-left: 0;
+}

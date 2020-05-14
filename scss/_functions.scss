@@ -1,0 +1,18 @@
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+
+///Function which allows to convert px to rem according to the size contained in the global variable default-font-size
+/// @PARAM {integer} $size - number in pixel to convert to rem
+/// @returns {string} - Rem value
+@function pxToRem($size){
+  @return $size/strip-unit($default-font-size)  * 1rem;
+}
