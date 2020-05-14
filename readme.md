@@ -79,7 +79,7 @@ La machine invitée contiendra :
   # SHELL
 ```
 
-par (Ce code sera exécuter à l'installation de la machine pour installé toutes les technos nécessaire à votre projet Website Symfony)
+par (Ce code sera exécuter à l'installation de la machine pour installé toutes les technos nécessaire au jeu)
 
 ```
 config.vm.provision "shell", inline: <<-SHELL
